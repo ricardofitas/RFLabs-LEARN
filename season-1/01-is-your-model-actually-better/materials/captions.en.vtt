@@ -1,0 +1,1155 @@
+WEBVTT
+
+1
+00:00:00.250 --> 00:00:04.660
+Here is a simple tensile test: a machine
+pulls a metal bar, and we
+
+2
+00:00:04.729 --> 00:00:06.289
+measure how much it stretches.
+
+3
+00:00:06.722 --> 00:00:09.834
+We want to know which of two models predicts
+that elongation better.
+
+4
+00:00:10.335 --> 00:00:14.529
+A simple regression model and a neural model
+receive the same loading
+
+5
+00:00:14.575 --> 00:00:16.660
+information and predict the same elongation.
+
+6
+00:00:17.162 --> 00:00:19.521
+The neural model has a smaller average
+error.
+
+7
+00:00:20.113 --> 00:00:21.868
+Should we replace the simpler model?
+
+8
+00:00:22.187 --> 00:00:26.335
+I'm Ricardo Fitas. We will answer that
+question using a small paired
+
+9
+00:00:26.381 --> 00:00:30.779
+comparison in Python. The application is a
+concrete motivation; the five
+
+10
+00:00:30.801 --> 00:00:34.859
+scores in this lesson are synthetic teaching
+data, not measured results
+
+11
+00:00:34.893 --> 00:00:39.861
+from either model. We will open Python
+scripts in JupyterLab, execute
+
+12
+00:00:39.885 --> 00:00:42.335
+the calculations, and watch the plots
+develop.
+
+13
+00:00:42.836 --> 00:00:46.915
+The workflow is to define the target,
+protect the test set, compare the
+
+14
+00:00:46.962 --> 00:00:50.893
+same cases, quantify the effect, and
+describe the uncertainty that
+
+15
+00:00:50.950 --> 00:00:52.351
+remains.
+
+16
+00:00:53.000 --> 00:00:57.481
+Start with the intended use. Are you
+predicting an unseen frame from a
+
+17
+00:00:57.540 --> 00:01:02.439
+familiar specimen, an entirely new specimen,
+or an unseen operating regime?
+
+18
+00:01:03.136 --> 00:01:06.526
+Those are different claims and usually
+require different splits.
+
+19
+00:01:07.129 --> 00:01:10.740
+Decide which error matters and what
+improvement would be useful before
+
+20
+00:01:10.798 --> 00:01:15.117
+examining the results. A small mean
+reduction may have little value if the
+
+21
+00:01:15.175 --> 00:01:16.882
+worst cases become unacceptable.
+
+22
+00:01:17.694 --> 00:01:21.978
+Conversely, a modest change may matter if it
+avoids a costly failure in the
+
+23
+00:01:22.048 --> 00:01:23.662
+operating region you care about.
+
+24
+00:01:24.358 --> 00:01:28.608
+State the baseline, the candidate, the unit
+of evaluation and the
+
+25
+00:01:28.689 --> 00:01:30.210
+information available to both.
+
+26
+00:01:30.906 --> 00:01:34.088
+Record the model revision and the dataset
+revision.
+
+27
+00:01:34.691 --> 00:01:38.581
+This contract makes the conclusion
+interpretable and reduces the temptation
+
+28
+00:01:38.627 --> 00:01:42.180
+to change the question after seeing a
+favourable number.
+
+29
+00:01:42.792 --> 00:01:45.811
+Suppose each specimen produces one hundred
+frames.
+
+30
+00:01:46.414 --> 00:01:49.456
+You now have five hundred rows, but only
+five specimens.
+
+31
+00:01:50.269 --> 00:01:54.658
+Frames from the same tensile-test sequence
+share geometry, preparation,
+
+32
+00:01:54.727 --> 00:01:59.000
+loading and imaging conditions. Treating
+every frame as an independent
+
+33
+00:01:59.035 --> 00:02:01.752
+specimen overstates how much new evidence
+you have.
+
+34
+00:02:02.564 --> 00:02:06.906
+Independence is an assumption about how data
+arise; it is not a property
+
+35
+00:02:06.964 --> 00:02:09.263
+created by converting them into separate
+rows.
+
+36
+00:02:09.960 --> 00:02:13.570
+For this worked example, we treat the five
+hypothetical specimens as
+
+37
+00:02:13.652 --> 00:02:18.307
+independent units. Within each specimen, the
+frame residuals share a
+
+38
+00:02:18.365 --> 00:02:22.196
+prescribed pattern. We will aggregate frame
+errors into one score per
+
+39
+00:02:22.254 --> 00:02:24.925
+specimen, then compare the models at that
+level.
+
+40
+00:02:25.528 --> 00:02:29.325
+This addresses a specimen-level question.
+Other designs may require
+
+41
+00:02:29.371 --> 00:02:32.993
+subjects, sites, sessions, batches or
+contiguous time blocks as the
+
+42
+00:02:33.075 --> 00:02:34.665
+evaluation unit.
+
+43
+00:02:35.292 --> 00:02:37.660
+The same grouping should inform the split.
+
+44
+00:02:38.357 --> 00:02:41.817
+If the deployment target is a new specimen,
+putting frames from that
+
+45
+00:02:41.863 --> 00:02:45.706
+specimen in both training and testing can
+leak specimen-specific
+
+46
+00:02:45.764 --> 00:02:49.166
+information. Keep related observations
+together.
+
+47
+00:02:49.677 --> 00:02:53.879
+Fit preprocessing using training data,
+select hyperparameters using
+
+48
+00:02:53.926 --> 00:02:57.653
+validation data, and reserve the final
+evaluation for the claim you
+
+49
+00:02:57.699 --> 00:03:02.924
+specified. If you use cross-validation for
+model selection, the outer
+
+50
+00:03:02.993 --> 00:03:06.209
+evaluation must remain separate from that
+selection process.
+
+51
+00:03:06.906 --> 00:03:11.747
+Also be cautious about uncertainty from
+folds: folds can share most of their
+
+52
+00:03:11.805 --> 00:03:15.358
+training data, so their scores are not
+automatically independent
+
+53
+00:03:15.404 --> 00:03:20.397
+experiments. Our example begins with fixed
+hypothetical test-case scores.
+
+54
+00:03:20.907 --> 00:03:24.820
+We are not training a neural network here,
+and we will not imply that five
+
+55
+00:03:24.843 --> 00:03:27.502
+scores demonstrate a completed nested
+evaluation.
+
+56
+00:03:28.106 --> 00:03:32.262
+The lesson is to preserve the information
+boundary before computing
+
+57
+00:03:32.320 --> 00:03:33.714
+uncertainty.
+
+58
+00:03:34.333 --> 00:03:39.060
+In JupyterLab, double-click the paired
+scores script in the file browser.
+
+59
+00:03:39.571 --> 00:03:42.787
+Open a terminal and enter python followed by
+the script name.
+
+60
+00:03:43.390 --> 00:03:48.383
+Press Enter to run it. Open the generated
+case table, with one row
+
+61
+00:03:48.987 --> 00:03:54.281
+per hypothetical specimen. The baseline
+errors are 0.11
+
+62
+00:03:54.304 --> 00:03:59.691
+zero, 0.170, 0.140, 0.1
+
+63
+00:03:59.738 --> 00:04:01.967
+nine zero and 0.130.
+
+64
+00:04:02.780 --> 00:04:08.155
+The candidate errors are 0.095, 0.15
+
+65
+00:04:08.190 --> 00:04:13.380
+zero, 0.125, 0.175 and zero point
+
+66
+00:04:13.461 --> 00:04:17.211
+one two zero. Both columns describe the same
+five cases.
+
+67
+00:04:17.652 --> 00:04:19.986
+Return to the script and inspect the
+subtraction.
+
+68
+00:04:20.590 --> 00:04:24.630
+Candidate minus baseline is negative when
+the candidate has lower error.
+
+69
+00:04:25.071 --> 00:04:29.634
+Case one gives 0.095 minus 0.110,
+
+70
+00:04:29.843 --> 00:04:32.107
+which is minus 0.015.
+
+71
+00:04:32.548 --> 00:04:35.555
+Case two gives minus 0.020.
+
+72
+00:04:36.066 --> 00:04:40.245
+Keep the identifiers beside both scores so
+that sorting one column cannot
+
+73
+00:04:40.315 --> 00:04:43.798
+silently break the pairing. The same script
+calculates the means.
+
+74
+00:04:44.239 --> 00:04:48.210
+The mean baseline score is 0.148, the mean
+candidate
+
+75
+00:04:48.233 --> 00:04:52.598
+score is 0.133, and the mean difference is
+minus zero
+
+76
+00:04:52.680 --> 00:04:57.196
+point zero one five. The plot connects each
+baseline score to its matching
+
+77
+00:04:57.231 --> 00:05:01.364
+candidate score. Every line slopes down in
+this constructed example.
+
+78
+00:05:01.968 --> 00:05:07.100
+NumPy computes one difference per case; the
+mean is a separate operation
+
+79
+00:05:07.193 --> 00:05:11.964
+over those five differences. The worked
+example also reconstructs frame
+
+80
+00:05:11.999 --> 00:05:16.573
+residuals with exactly these case-level
+root-mean-square errors and checks
+
+81
+00:05:16.608 --> 00:05:21.032
+the result. Those checks connect the case
+table to the dependent frame
+
+82
+00:05:21.067 --> 00:05:25.177
+data. You can pause the video to calculate a
+row yourself.
+
+83
+00:05:25.792 --> 00:05:29.020
+We are calculating the mean of five case-
+level RMSEs.
+
+84
+00:05:29.403 --> 00:05:32.944
+That is not generally the same as pooling
+every residual and calculating one
+
+85
+00:05:32.967 --> 00:05:38.830
+global RMSE. With unequal sequence lengths,
+a pooled metric can give longer
+
+86
+00:05:38.900 --> 00:05:42.696
+sequences more weight. Different weighting
+schemes answer different
+
+87
+00:05:42.731 --> 00:05:46.760
+questions. Neither is automatically correct
+for every deployment.
+
+88
+00:05:47.363 --> 00:05:52.251
+Our equal-case average asks how the model
+performs for a typical case within
+
+89
+00:05:52.286 --> 00:05:57.847
+this fixed teaching set. The mean paired
+difference of minus 0.015 is the
+
+90
+00:05:57.905 --> 00:05:59.403
+effect estimate on that scale.
+
+91
+00:06:00.007 --> 00:06:04.442
+The five lines on the plot show the per-case
+changes, which the average
+
+92
+00:06:04.476 --> 00:06:08.911
+alone would hide. In this constructed
+example every line improves.
+
+93
+00:06:09.352 --> 00:06:13.869
+With real data, inspect both helpful and
+harmful cases and relate their
+
+94
+00:06:13.915 --> 00:06:17.247
+sizes to an engineering or practical
+threshold.
+
+95
+00:06:17.875 --> 00:06:21.602
+Open the paired bootstrap script. To explore
+variation in the average
+
+96
+00:06:21.625 --> 00:06:25.398
+across cases, we resample case indices with
+replacement.
+
+97
+00:06:25.909 --> 00:06:30.344
+When case three is selected, we take both
+its baseline and candidate score.
+
+98
+00:06:31.157 --> 00:06:33.073
+Watch the paired rows move together.
+
+99
+00:06:33.247 --> 00:06:36.602
+Resampling the two model arrays separately
+would destroy that pairing.
+
+100
+00:06:37.415 --> 00:06:40.631
+Look at the SciPy bootstrap call in the
+editor.
+
+101
+00:06:41.234 --> 00:06:46.111
+The arguments specify paired equals True,
+the percentile method, a fixed
+
+102
+00:06:46.238 --> 00:06:48.804
+random generator, and twenty thousand
+resamples.
+
+103
+00:06:49.315 --> 00:06:53.169
+Run the script in the terminal, then open
+the generated animation.
+
+104
+00:06:53.495 --> 00:06:57.848
+The statistic accepts an axis argument
+because SciPy evaluates a batch of
+
+105
+00:06:57.930 --> 00:07:02.504
+resamples. Taking the mean along that axis
+preserves the batch dimension.
+
+106
+00:07:03.108 --> 00:07:07.055
+In the output, the histogram accumulates
+resampled mean differences.
+
+107
+00:07:07.566 --> 00:07:12.071
+For these constructed inputs, the
+illustrative interval runs from minus
+
+108
+00:07:12.117 --> 00:07:16.332
+0.018 to minus 0.012.
+
+109
+00:07:16.715 --> 00:07:20.732
+This is a distribution of resampled mean
+differences, not individual frame
+
+110
+00:07:20.778 --> 00:07:25.457
+residuals or model parameters. The animation
+reveals the computed resamples
+
+111
+00:07:25.492 --> 00:07:28.116
+in batches so that you can see the
+calculation.
+
+112
+00:07:28.720 --> 00:07:32.237
+The fixed random generator makes this
+particular run repeatable.
+
+113
+00:07:32.841 --> 00:07:36.440
+Twenty thousand is a computational choice,
+not the number of physical
+
+114
+00:07:36.498 --> 00:07:37.520
+experiments.
+
+115
+00:07:38.125 --> 00:07:43.036
+Watch the same bootstrap calculation after
+one hundred, one thousand, five
+
+116
+00:07:43.071 --> 00:07:47.738
+thousand and twenty thousand resamples. The
+histogram and interval
+
+117
+00:07:47.808 --> 00:07:51.651
+estimates become numerically more stable,
+but the number of independent
+
+118
+00:07:51.709 --> 00:07:56.597
+cases remains five. More resampling cannot
+discover unseen specimen types,
+
+119
+00:07:56.771 --> 00:07:59.453
+operating regimes or shared systematic
+errors.
+
+120
+00:08:00.149 --> 00:08:04.956
+The interval below zero therefore does not
+automatically validate the
+
+121
+00:08:04.991 --> 00:08:09.298
+candidate. For this tiny sample, its
+numerical endpoints do not certify
+
+122
+00:08:09.379 --> 00:08:14.186
+reliable population coverage. Now open the
+separate central-limit animation
+
+123
+00:08:14.244 --> 00:08:18.702
+in the file browser. Here we sample from a
+known uniform population and
+
+124
+00:08:18.772 --> 00:08:21.837
+increase the number of independent
+observations in each average.
+
+125
+00:08:22.650 --> 00:08:26.214
+The standardised distribution of sample
+means approaches a Gaussian shape.
+
+126
+00:08:26.818 --> 00:08:30.951
+That is a different experiment. Increasing
+independent sample size is not
+
+127
+00:08:30.986 --> 00:08:34.376
+the same as increasing the number of
+bootstrap repeats on the same five
+
+128
+00:08:34.411 --> 00:08:39.647
+cases. Our bootstrap distribution has
+discrete support; we do not impose a
+
+129
+00:08:39.693 --> 00:08:43.699
+Gaussian curve on it. A useful report
+distinguishes computational
+
+130
+00:08:43.769 --> 00:08:48.134
+approximation, limited independent evidence,
+and a change in the population
+
+131
+00:08:48.226 --> 00:08:49.922
+or operating conditions.
+
+132
+00:08:50.542 --> 00:08:55.488
+Open the exact sign-flip script. Under a
+null model that permits swapping
+
+133
+00:08:55.534 --> 00:08:59.528
+the two model labels within each independent
+case, how unusual is the
+
+134
+00:08:59.586 --> 00:09:03.708
+observed mean difference? Each of five pairs
+has two possible label
+
+135
+00:09:03.766 --> 00:09:07.679
+assignments, giving two to the power five,
+or thirty-two, assignments.
+
+136
+00:09:08.375 --> 00:09:12.160
+Swapping labels changes the sign of one
+case's difference while preserving
+
+137
+00:09:12.195 --> 00:09:15.992
+the pair. Run the script in the terminal and
+open its animation.
+
+138
+00:09:16.503 --> 00:09:20.311
+The rows show every assignment of minus one
+and plus one.
+
+139
+00:09:20.915 --> 00:09:23.213
+Each column still belongs to one case.
+
+140
+00:09:23.655 --> 00:09:26.151
+The next line computes a mean for every row.
+
+141
+00:09:26.754 --> 00:09:30.887
+As the thirty-two outcomes appear, the
+histogram builds the exact null
+
+142
+00:09:30.934 --> 00:09:35.404
+distribution. The same script runs SciPy's
+permutation test with
+
+143
+00:09:35.450 --> 00:09:40.338
+permutation type samples, a two-sided
+alternative, and infinite resamples.
+
+144
+00:09:40.942 --> 00:09:45.412
+For this small example, infinity requests
+exhaustive enumeration, not a
+
+145
+00:09:45.446 --> 00:09:50.416
+Monte Carlo approximation. The assertions
+confirm thirty-two assignments
+
+146
+00:09:50.451 --> 00:09:52.552
+and agreement with the explicit enumeration.
+
+147
+00:09:53.063 --> 00:09:57.428
+The exact two-sided p-value is 0.0625.
+
+148
+00:09:58.241 --> 00:10:01.515
+That interpretation requires model-label
+exchangeability under the
+
+149
+00:10:01.538 --> 00:10:06.368
+specified null; a paired table alone does
+not establish that assumption for
+
+150
+00:10:06.438 --> 00:10:10.513
+every observational comparison. The code
+checks the calculation.
+
+151
+00:10:10.954 --> 00:10:13.902
+The experimental design must justify its
+use.
+
+152
+00:10:14.542 --> 00:10:18.814
+The percentile interval is below zero, while
+the exact two-sided test
+
+153
+00:10:19.140 --> 00:10:21.636
+does not cross a conventional five-percent
+threshold.
+
+154
+00:10:22.448 --> 00:10:24.561
+This is not a contradiction in the code.
+
+155
+00:10:25.072 --> 00:10:28.671
+The methods use different constructions, and
+small samples make their
+
+156
+00:10:28.741 --> 00:10:34.313
+limitations visible. In this particular
+five-pair sign-flip design, even
+
+157
+00:10:34.348 --> 00:10:38.180
+improvements in every case give a smallest
+attainable two-sided value of
+
+158
+00:10:38.272 --> 00:10:43.044
+0.0625 when the nonzero differences have the
+same sign.
+
+159
+00:10:43.857 --> 00:10:46.144
+We verified that calculation by enumeration.
+
+160
+00:10:47.096 --> 00:10:50.835
+Do not generalise that number to every
+statistical test or every dataset
+
+161
+00:10:50.881 --> 00:10:55.525
+with five observations. Also, a p-value is
+not the probability that the
+
+162
+00:10:55.571 --> 00:10:59.821
+candidate is better. It measures
+compatibility with a specified null
+
+163
+00:10:59.879 --> 00:11:02.747
+calculation, conditional on its assumptions.
+
+164
+00:11:03.444 --> 00:11:07.147
+Effect size, uncertainty and the practical
+decision still need to be
+
+165
+00:11:07.182 --> 00:11:08.180
+discussed.
+
+166
+00:11:08.792 --> 00:11:10.371
+Return to the residual arrays.
+
+167
+00:11:10.812 --> 00:11:13.227
+Each has shape five by one hundred.
+
+168
+00:11:13.831 --> 00:11:16.675
+We repeat the frames ten times and obtain
+more columns.
+
+169
+00:11:17.279 --> 00:11:21.992
+The per-case RMSE stays unchanged, and the
+number of cases stays five.
+
+170
+00:11:22.689 --> 00:11:25.824
+This executed check makes the distinction
+concrete.
+
+171
+00:11:26.265 --> 00:11:29.945
+Repeated or highly correlated measurements
+can improve how a particular
+
+172
+00:11:30.015 --> 00:11:33.463
+case is described, but they do not
+automatically provide more
+
+173
+00:11:33.510 --> 00:11:37.898
+independent cases for generalisation. A
+frame-level analysis can be
+
+174
+00:11:37.933 --> 00:11:41.706
+appropriate for a frame-level target if its
+dependence is handled
+
+175
+00:11:41.741 --> 00:11:46.106
+properly. The mistake is to use the number
+of rows as the sample size
+
+176
+00:11:46.141 --> 00:11:47.627
+for a different population claim.
+
+177
+00:11:48.231 --> 00:11:52.283
+Before choosing a confidence procedure, draw
+the data hierarchy and
+
+178
+00:11:52.329 --> 00:11:55.232
+decide which unit the conclusion is about.
+
+179
+00:11:55.833 --> 00:11:59.049
+A comparison also depends on which baselines
+are included.
+
+180
+00:11:59.653 --> 00:12:03.089
+A neural model should compete with simpler
+approaches that receive
+
+181
+00:12:03.136 --> 00:12:05.736
+comparable information and are tuned fairly.
+
+182
+00:12:06.433 --> 00:12:10.392
+If you try many candidates and report only
+the best final test score,
+
+183
+00:12:10.903 --> 00:12:13.376
+the test set has become part of selection.
+
+184
+00:12:13.979 --> 00:12:18.101
+Keep a record of the search and use a
+protected evaluation or an
+
+185
+00:12:18.147 --> 00:12:22.698
+appropriate nested design. Retain adverse
+cases, failed fits and
+
+186
+00:12:22.780 --> 00:12:27.911
+predefined exclusion rules. If random
+initialisation matters, report it
+
+187
+00:12:27.969 --> 00:12:32.172
+separately from variation across specimens:
+many seeds on the same
+
+188
+00:12:32.195 --> 00:12:34.935
+specimen are not many new specimens.
+
+189
+00:12:35.446 --> 00:12:39.824
+For scientific models, check whether lower
+observation error comes from
+
+190
+00:12:39.905 --> 00:12:43.608
+recovering the intended mechanism or
+compensating for missing physics.
+
+191
+00:12:44.212 --> 00:12:47.858
+Better fit and more credible interpretation
+are related but distinct
+
+192
+00:12:47.916 --> 00:12:49.286
+objectives.
+
+193
+00:12:49.917 --> 00:12:53.864
+For a practical decision, combine the effect
+with the cost of obtaining
+
+194
+00:12:53.922 --> 00:12:58.265
+it. You may care about accuracy in a
+critical regime, robustness,
+
+195
+00:12:58.590 --> 00:13:02.305
+inference latency, memory, training cost or
+energy.
+
+196
+00:13:02.909 --> 00:13:06.926
+Those claims need their own measurements and
+a fair protocol; none is
+
+197
+00:13:06.960 --> 00:13:08.946
+supplied by our synthetic error table.
+
+198
+00:13:09.642 --> 00:13:13.230
+A decision threshold should come from the
+use case rather than from a
+
+199
+00:13:13.288 --> 00:13:17.758
+convenient p-value. You can prefer a model
+on engineering grounds while
+
+200
+00:13:17.781 --> 00:13:21.171
+stating that evidence for wider
+generalisation remains limited.
+
+201
+00:13:21.984 --> 00:13:25.061
+You can also decide to collect more
+independent cases before changing a
+
+202
+00:13:25.107 --> 00:13:29.926
+safety-critical workflow. The report should
+say what was compared, what
+
+203
+00:13:29.972 --> 00:13:33.896
+information was available, what changed on
+each case, and what would
+
+204
+00:13:33.978 --> 00:13:35.893
+make you revise the conclusion.
+
+205
+00:13:36.500 --> 00:13:39.658
+Open a terminal inside JupyterLab using the
+launcher.
+
+206
+00:13:40.262 --> 00:13:45.451
+Enter python worked_example.py and press
+Enter.
+
+207
+00:13:46.148 --> 00:13:50.305
+The script runs the same calculations and
+writes the case table, frame
+
+208
+00:13:50.339 --> 00:13:55.320
+arrays and figures. In the file browser,
+open the case table, then the
+
+209
+00:13:55.390 --> 00:13:57.863
+paired plot, then the uncertainty plot.
+
+210
+00:13:58.977 --> 00:14:01.508
+These are files produced by the executed
+script.
+
+211
+00:14:02.112 --> 00:14:06.141
+The assertions verify that the frame
+residuals reproduce the intended
+
+212
+00:14:06.222 --> 00:14:10.611
+root-mean-square errors, that the exact
+calculation contains thirty-two
+
+213
+00:14:10.681 --> 00:14:14.744
+sign assignments, and that SciPy matches the
+explicit enumeration.
+
+214
+00:14:15.441 --> 00:14:20.085
+To adapt the example, replace the synthetic
+scores with results from your
+
+215
+00:14:20.154 --> 00:14:24.508
+protected evaluation. Retain the independent
+case identifiers and
+
+216
+00:14:24.601 --> 00:14:27.260
+reconsider the resampling and sign-swap
+assumptions.
+
+217
+00:14:27.771 --> 00:14:30.615
+Before running, predict the sign of the mean
+difference.
+
+218
+00:14:31.219 --> 00:14:33.703
+Afterwards, inspect each case and the mean.
+
+219
+00:14:34.307 --> 00:14:39.277
+A fixed seed makes the calculation
+repeatable; it does not repair a leaking
+
+220
+00:14:39.335 --> 00:14:44.501
+split or create independence. The editor,
+terminal and output files make
+
+221
+00:14:44.524 --> 00:14:48.379
+the arithmetic transparent. Your
+experimental design determines what the
+
+222
+00:14:48.437 --> 00:14:50.340
+output can tell you.
+
+223
+00:14:50.958 --> 00:14:54.766
+Return to our opening question: should the
+neural model replace the simpler
+
+224
+00:14:54.824 --> 00:14:58.899
+model for predicting the elongation of a
+metal bar in a tensile test?
+
+225
+00:14:59.712 --> 00:15:04.391
+In this teaching example, the candidate
+reduces mean case-level error from
+
+226
+00:15:04.507 --> 00:15:09.070
+0.148 to 0.133, an improvement of
+
+227
+00:15:09.139 --> 00:15:12.158
+about ten percent, and it improves all five
+cases.
+
+228
+00:15:12.762 --> 00:15:15.757
+That is a promising effect within these
+synthetic inputs.
+
+229
+00:15:16.454 --> 00:15:21.016
+The illustrative paired bootstrap interval
+is negative, while the exact
+
+230
+00:15:21.051 --> 00:15:25.916
+two-sided sign-flip calculation gives 0.0625
+under
+
+231
+00:15:26.032 --> 00:15:30.699
+its null assumptions. Neither calculation
+proves better performance on
+
+232
+00:15:30.780 --> 00:15:36.132
+untested metal specimens. A defensible next
+step is to compare the actual
+
+233
+00:15:36.179 --> 00:15:39.964
+models on more independent, protected
+specimens and measure the relevant
+
+234
+00:15:40.033 --> 00:15:44.898
+accuracy, latency and cost requirements.
+Prefer the candidate when its
+
+235
+00:15:44.956 --> 00:15:47.754
+practical benefit is supported by that
+evaluation.
+
+236
+00:15:48.706 --> 00:15:52.236
+Keep the baseline when the improvement is
+too small or the evidence is
+
+237
+00:15:52.305 --> 00:15:57.634
+insufficient for the intended use. Better on
+these five synthetic cases is
+
+238
+00:15:57.681 --> 00:15:59.376
+the conclusion we can support today.
+
+239
+00:15:59.979 --> 00:16:02.894
+Better for deployment requires additional
+evidence.
+
+240
+00:16:03.898 --> 00:16:05.178
+Thank you for your attention.

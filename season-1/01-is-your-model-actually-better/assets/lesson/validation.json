@@ -1,0 +1,52 @@
+{
+  "checked_at_utc": "2026-10-16T00:11:25.051780+00:00",
+  "python_and_all_demonstrations": "PASS",
+  "animation_full_decode": "PASS",
+  "notebook_json": "PASS",
+  "animations": [
+    {
+      "file": "animations/bootstrap-411cd75ab8.mp4",
+      "bytes": 215823,
+      "duration_seconds": 18.0,
+      "sha256": "65b7dd83eadf3b5d8b787125d62c030c34f33829c41b39a2c719322ae4d7537f"
+    },
+    {
+      "file": "animations/clt-uniform-seed20261015.mp4",
+      "bytes": 90838,
+      "duration_seconds": 18.0,
+      "sha256": "0c3ef8517f37b7b588e6479682f9dcbd9d5b7717f806cb46130f08c6b18cc726"
+    },
+    {
+      "file": "animations/comparison-v1.mp4",
+      "bytes": 63717,
+      "duration_seconds": 14.0,
+      "sha256": "60194fcbc299ea6e3813205585731d9c753bcfdb2053321ef17841e108ec9860"
+    },
+    {
+      "file": "animations/exact-08c041a4e9.mp4",
+      "bytes": 105323,
+      "duration_seconds": 18.0,
+      "sha256": "bd2cf47bd2ee3302a0208c07a395629d18210f29d3f95070ecb9c6b0dbee5414"
+    },
+    {
+      "file": "animations/paired-4ff953ad82.mp4",
+      "bytes": 37753,
+      "duration_seconds": 14.0,
+      "sha256": "63c85368febb73a27137ec71121729b46537a64b00120d5b055d0d20787e280b"
+    },
+    {
+      "file": "animations/pairs-3173ce66a5-geometry-v3.mp4",
+      "bytes": 154913,
+      "duration_seconds": 20.0,
+      "sha256": "fe88f49e6c0c0e20c09f0f3dc0d642146445a43cb25c7ade004052701b1e37f5"
+    },
+    {
+      "file": "animations/residuals-five-cases-v1.mp4",
+      "bytes": 65452,
+      "duration_seconds": 16.0,
+      "sha256": "87becfbea5ab31ed6d193de851df6ceceea7d8c500e15769a9c63b36cb801f66"
+    }
+  ],
+  "inputs": "synthetic teaching data",
+  "source_code": "Unchanged from the episode companion-code package."
+}

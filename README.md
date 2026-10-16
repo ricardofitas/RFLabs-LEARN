@@ -51,7 +51,7 @@ The machine-readable calendar is [season-1/episodes.json](season-1/episodes.json
 
 Compare two predictors in a simple metal-bar tensile-test setting. Work through paired RMSE differences, a paired percentile bootstrap, an exact sign-flip test and the consequences of treating correlated frames as independent cases. All numerical scores are **synthetic teaching data**; the lesson does not train a model or report experimental metal-test results.
 
-The episode folder includes eight notebooks, the equivalent scripts, pinned Python requirements, deterministic input generation, the case-level CSV, SVG figures and a recorded execution receipt.
+The episode folder includes eight notebooks, the equivalent scripts, pinned Python requirements, deterministic input generation, the case-level CSV, SVG/PNG figures, seven computed animations and execution/validation receipts. The `materials/` folder also includes the English transcript, SRT/VTT captions and the approved thumbnail.
 
 ### Run the example
 
@@ -84,3 +84,7 @@ Five cases do not establish reliable population coverage or deployment performan
 ## Reuse
 
 The companion software is provided under the repository's [MIT License](LICENSE). Third-party dependencies retain their own licences.
+
+## Other approved presentations
+
+The owner requested immediate publication of the three approved videos on 16 October 2026. Subsequent LEARN episodes retain the Friday cadence. [Titles, descriptions and project links](publishing/README.md).

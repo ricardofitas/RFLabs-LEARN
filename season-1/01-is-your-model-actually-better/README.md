@@ -1,15 +1,22 @@
 # Is Your Model Actually Better?
 
-Companion code for Ricardo Fitas's video **VID-LEARN-001**, revision 3.
+Companion materials for **Season 1, episode 01 — Is Your Model Actually Better?**
+by [Ricardo Fitas](https://www.youtube.com/@ricardofitas).
 
 The motivating example is a tensile test: a machine pulls a metal bar and we
 compare two models that predict its elongation. The numerical scores below are
 **synthetic teaching data**, expressed in arbitrary teaching units. They are not
 experimental metal-test results and no predictive model is trained here.
 
-This repository contains the executable Python scripts and notebooks used in
-the video. It contains no narration, video-production project or voice files.
-Plots, tables, arrays and animations are generated locally when the scripts run.
+This folder contains the executable Python scripts and notebooks used in the
+video. The `materials/` folder contains the transcript, English SRT/VTT captions,
+thumbnail and input scores. `assets/lesson/` contains reproducible results and
+figures; `animations/` contains computed demonstrations. Running the scripts
+regenerates these teaching outputs.
+
+YouTube: publication pending.
+
+[Back to the Season 1 episode list](../../README.md#season-1).
 
 ## Quick start
 
