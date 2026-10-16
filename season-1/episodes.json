@@ -8,7 +8,7 @@
   "first_release_date": "2026-10-16",
   "cadence_days": 7,
   "calendar_status": "editorial_targets",
-  "youtube_scheduling_status": "connection_required",
+  "youtube_scheduling_status": "connected",
   "episodes": [
     {
       "episode": 1,
@@ -17,9 +17,12 @@
       "track": "Statistics",
       "target_date": "2026-10-16",
       "youtube_url": null,
-      "publication_status": "ready_for_upload",
+      "publication_status": "blocked_long_video_limit",
       "materials": "01-is-your-model-actually-better",
-      "production_status": "complete"
+      "production_status": "complete",
+      "attempted_youtube_url": "https://www.youtube.com/watch?v=6JkvzrWXLlc",
+      "publication_note": "YouTube removed the initial 16:06 upload because it was too long. Enable uploads longer than 15 minutes through channel verification before uploading the accepted file again.",
+      "thumbnail_status": "upload_failed"
     },
     {
       "episode": 2,

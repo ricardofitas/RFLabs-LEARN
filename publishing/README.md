@@ -2,7 +2,15 @@
 
 Channel: [@ricardofitas](https://www.youtube.com/@ricardofitas).
 
-The owner requested immediate publication of all three videos on 16 October 2026. Subsequent episodes follow the Friday cadence. These entries remain pending until YouTube confirms their upload; no watch URL has been assigned yet.
+The owner requested immediate publication of all three videos on 16 October 2026. Subsequent LEARN episodes follow the Friday cadence.
+
+| Video | YouTube | Publication status |
+| --- | --- | --- |
+| THALASSA | [Watch](https://www.youtube.com/watch?v=c3Adrd3EUCw) | Published; custom thumbnail pending |
+| Graph-CB | [Watch](https://www.youtube.com/watch?v=ftrbhKALZ7o) | Published; custom thumbnail pending |
+| LEARN S1E01 | Awaiting channel verification | Initial upload removed: longer than 15 minutes |
+
+YouTube channel verification is required for long uploads and custom thumbnails. The publication tool reported that the thumbnail uploads failed for all three. Do not re-publish the two available videos to change their thumbnails; edit the existing videos.
 
 ## Is Your Model Actually Better?
 

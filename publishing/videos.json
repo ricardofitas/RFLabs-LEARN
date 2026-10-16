@@ -1,0 +1,41 @@
+{
+  "channel_url": "https://www.youtube.com/@ricardofitas",
+  "videos": [
+    {
+      "title": "Is Your Model Actually Better?",
+      "description": "Learn to compare two models fairly in Python using paired comparisons and uncertainty estimates, illustrated with a synthetic tensile-test example.\n\nCode, notebooks and materials: https://github.com/ricardofitas/RFLabs-LEARN/tree/main/season-1/01-is-your-model-actually-better",
+      "metricool_post_id": 397314104,
+      "metricool_uuid": "6345367160611819169",
+      "youtube_video_id": "6JkvzrWXLlc",
+      "youtube_url": null,
+      "attempted_youtube_url": "https://www.youtube.com/watch?v=6JkvzrWXLlc",
+      "publication_status": "removed_video_too_long",
+      "thumbnail_status": "upload_failed",
+      "provider_message": "The YouTube post was published with some warnings: Could not upload video thumbnail."
+    },
+    {
+      "title": "THALASSA — Wave Forecasts and a Virtual Wave-Energy Buoy",
+      "description": "Explore offshore wave forecasts and see how an idealised wave-energy buoy responds in THALASSA.\n\nExplore the project: https://projecthub.ricardofitas.com/thalassa/",
+      "metricool_post_id": 397314144,
+      "metricool_uuid": "6769968530763171548",
+      "youtube_video_id": "c3Adrd3EUCw",
+      "youtube_url": "https://www.youtube.com/watch?v=c3Adrd3EUCw",
+      "attempted_youtube_url": "https://www.youtube.com/watch?v=c3Adrd3EUCw",
+      "publication_status": "published",
+      "thumbnail_status": "upload_failed",
+      "provider_message": "The YouTube post was published with some warnings: Could not upload video thumbnail."
+    },
+    {
+      "title": "Graph-Based Characterization of Corrugated-Board Compression",
+      "description": "See how images become graphs to track the deformation of corrugated board during compression.\n\nExplore the project: https://projecthub.temp.ricardofitas.com/graph-cb",
+      "metricool_post_id": 397314200,
+      "metricool_uuid": "-2218042530415031200",
+      "youtube_video_id": "ftrbhKALZ7o",
+      "youtube_url": "https://www.youtube.com/watch?v=ftrbhKALZ7o",
+      "attempted_youtube_url": "https://www.youtube.com/watch?v=ftrbhKALZ7o",
+      "publication_status": "published",
+      "thumbnail_status": "upload_failed",
+      "provider_message": "The YouTube post was published with some warnings: Could not upload video thumbnail."
+    }
+  ]
+}
