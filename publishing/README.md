@@ -8,9 +8,9 @@ The owner requested immediate publication of all three videos on 16 October 2026
 | --- | --- | --- |
 | THALASSA | [Watch](https://www.youtube.com/watch?v=c3Adrd3EUCw) | Published; custom thumbnail pending |
 | Graph-CB | [Watch](https://www.youtube.com/watch?v=ftrbhKALZ7o) | Published; custom thumbnail pending |
-| LEARN S1E01 | Awaiting channel verification | Initial upload removed: longer than 15 minutes |
+| LEARN S1E01 | [Watch](https://www.youtube.com/watch?v=Gz5tEYECnsE) | Published with approved custom thumbnail |
 
-YouTube channel verification is required for long uploads and custom thumbnails. The publication tool reported that the thumbnail uploads failed for all three. Do not re-publish the two available videos to change their thumbnails; edit the existing videos.
+The channel was verified and LEARN S1E01 was re-uploaded successfully with the approved thumbnail. THALASSA and Graph-CB are published; their custom-thumbnail replacements remain pending. Edit those existing videos to change their thumbnails.
 
 ## Is Your Model Actually Better?
 

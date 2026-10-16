@@ -16,13 +16,18 @@
       "title": "Is Your Model Actually Better?",
       "track": "Statistics",
       "target_date": "2026-10-16",
-      "youtube_url": null,
-      "publication_status": "blocked_long_video_limit",
+      "youtube_url": "https://www.youtube.com/watch?v=Gz5tEYECnsE",
+      "publication_status": "published",
       "materials": "01-is-your-model-actually-better",
       "production_status": "complete",
-      "attempted_youtube_url": "https://www.youtube.com/watch?v=6JkvzrWXLlc",
-      "publication_note": "YouTube removed the initial 16:06 upload because it was too long. Enable uploads longer than 15 minutes through channel verification before uploading the accepted file again.",
-      "thumbnail_status": "upload_failed"
+      "publication_note": "Published after channel verification on 16 October 2026 with the approved custom thumbnail.",
+      "thumbnail_status": "published",
+      "previous_uploads": [
+        {
+          "youtube_url": "https://www.youtube.com/watch?v=6JkvzrWXLlc",
+          "status": "removed_video_too_long"
+        }
+      ]
     },
     {
       "episode": 2,

@@ -4,14 +4,20 @@
     {
       "title": "Is Your Model Actually Better?",
       "description": "Learn to compare two models fairly in Python using paired comparisons and uncertainty estimates, illustrated with a synthetic tensile-test example.\n\nCode, notebooks and materials: https://github.com/ricardofitas/RFLabs-LEARN/tree/main/season-1/01-is-your-model-actually-better",
-      "metricool_post_id": 397314104,
-      "metricool_uuid": "6345367160611819169",
-      "youtube_video_id": "6JkvzrWXLlc",
-      "youtube_url": null,
-      "attempted_youtube_url": "https://www.youtube.com/watch?v=6JkvzrWXLlc",
-      "publication_status": "removed_video_too_long",
-      "thumbnail_status": "upload_failed",
-      "provider_message": "The YouTube post was published with some warnings: Could not upload video thumbnail."
+      "metricool_post_id": 397319272,
+      "metricool_uuid": "1416104292295396911",
+      "youtube_video_id": "Gz5tEYECnsE",
+      "youtube_url": "https://www.youtube.com/watch?v=Gz5tEYECnsE",
+      "publication_status": "published",
+      "thumbnail_status": "published",
+      "provider_message": "Published",
+      "previous_uploads": [
+        {
+          "youtube_video_id": "6JkvzrWXLlc",
+          "youtube_url": "https://www.youtube.com/watch?v=6JkvzrWXLlc",
+          "status": "removed_video_too_long"
+        }
+      ]
     },
     {
       "title": "THALASSA — Wave Forecasts and a Virtual Wave-Energy Buoy",

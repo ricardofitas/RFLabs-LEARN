@@ -9,7 +9,7 @@ Practical lessons in statistics, machine learning and scientific computing by **
 <!-- EPISODES:START -->
 | Episode | Title | Track | Target Friday | YouTube | Materials |
 |---|---|---|---|---|---|
-| S1E01 | Is Your Model Actually Better? | Statistics | 2026-10-16 | Awaiting channel verification | [Code and notebooks](season-1/01-is-your-model-actually-better/) |
+| S1E01 | Is Your Model Actually Better? | Statistics | 2026-10-16 | [Watch](https://www.youtube.com/watch?v=Gz5tEYECnsE) | [Code and notebooks](season-1/01-is-your-model-actually-better/) |
 | S1E02 | How Much Independent Data Do You Have? | Statistics | 2026-10-23 | Pending upload | In preparation |
 | S1E03 | Why Your Test Score Is Too Good | Statistics | 2026-10-30 | Pending upload | In preparation |
 | S1E04 | Choose the Right Validation Split | Statistics | 2026-11-06 | Pending upload | In preparation |
@@ -41,7 +41,7 @@ Practical lessons in statistics, machine learning and scientific computing by **
 | S1E30 | Small Data, Gaussian Processes and Active Learning | Scientific ML | 2027-05-07 | Pending upload | In preparation |
 <!-- EPISODES:END -->
 
-Dates are editorial targets. The YouTube column will link to each actual upload when its URL is available. Publication of later episodes depends on completion and Ricardo's approval. The channel is connected. Episode 1's initial 16:06 upload was removed by YouTube because it exceeded the channel's current 15-minute limit. Channel verification is required before re-uploading it; no public LEARN episode URL is claimed yet.
+Dates are editorial targets. The YouTube column will link to each actual upload when its URL is available. Publication of later episodes depends on completion and Ricardo's approval. The channel is connected and verified. Episode 1 is now published with its approved custom thumbnail.
 
 The machine-readable calendar is [season-1/episodes.json](season-1/episodes.json).
 
@@ -95,6 +95,6 @@ The owner requested immediate publication of the three approved videos on 16 Oct
 | --- | --- | --- |
 | THALASSA — Wave Forecasts and a Virtual Wave-Energy Buoy | [Watch](https://www.youtube.com/watch?v=c3Adrd3EUCw) | Published; custom thumbnail pending |
 | Graph-Based Characterization of Corrugated-Board Compression | [Watch](https://www.youtube.com/watch?v=ftrbhKALZ7o) | Published; custom thumbnail pending |
-| Is Your Model Actually Better? | Awaiting channel verification | Initial upload removed by YouTube: video too long |
+| Is Your Model Actually Better? | [Watch](https://www.youtube.com/watch?v=Gz5tEYECnsE) | Published with approved custom thumbnail |
 
-Enable [channel verification](https://www.youtube.com/verify) to allow videos longer than 15 minutes and custom thumbnails. The accepted source videos and approved thumbnails remain available for completion.
+The verified channel supports long videos and custom thumbnails. THALASSA and Graph-CB retain their existing public URLs; their custom-thumbnail updates remain pending.

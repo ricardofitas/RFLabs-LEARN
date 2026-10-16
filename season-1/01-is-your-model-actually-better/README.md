@@ -14,7 +14,7 @@ thumbnail and input scores. `assets/lesson/` contains reproducible results and
 figures; `animations/` contains computed demonstrations. Running the scripts
 regenerates these teaching outputs.
 
-YouTube: awaiting channel verification. The initial upload was rejected by YouTube's 15-minute limit; this lesson is 16:06. The approved video will be re-uploaded after the long-video feature is enabled.
+YouTube: [Watch episode 01](https://www.youtube.com/watch?v=Gz5tEYECnsE).
 
 [Back to the Season 1 episode list](../../README.md#season-1).
 
