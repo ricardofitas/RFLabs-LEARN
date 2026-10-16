@@ -2,7 +2,7 @@
 
 Practical lessons in statistics, machine learning and scientific computing by **Ricardo Fitas**. Each episode is self-contained and comes with reproducible companion material as it becomes available.
 
-**Release cadence:** one LEARN episode every Friday, starting **16 October 2026**. Target release time: **18:00 Europe/London** (the same local time as mainland Portugal).
+**Release cadence:** one LEARN episode every Friday, starting **16 October 2026**. Target release time: **18:00 Europe/London**.
 
 ## Season 1
 
