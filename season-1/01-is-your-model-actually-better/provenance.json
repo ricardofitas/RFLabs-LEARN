@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "episode": "VID-LEARN-001",
+  "title": "Is Your Model Actually Better?",
+  "source_archive": "VID-LEARN-001_Code.zip",
+  "scientific_code_revision": 3,
+  "description": "Original code-only companion package; scientific scripts and notebooks retained. Public repository packaging adds the episode catalogue, description, generated data/figures and a fresh execution receipt.",
+  "verified_on": "2026-10-16",
+  "data_class": "synthetic teaching data",
+  "bootstrap_seed": 20261013,
+  "n_resamples": 20000,
+  "private_production_material_included": false
+}

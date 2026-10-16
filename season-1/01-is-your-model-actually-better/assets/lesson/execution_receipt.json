@@ -1,0 +1,37 @@
+{
+  "ticket": "VID-LEARN-001",
+  "data_class": "synthetic teaching data",
+  "executed_at_utc": "2026-10-16T00:07:37.887797+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  },
+  "cases": 5,
+  "frames_per_case": 100,
+  "baseline_mean": 0.14800000000000002,
+  "candidate_mean": 0.13299999999999998,
+  "mean_difference": -0.01500000000000001,
+  "bootstrap": {
+    "method": "paired percentile",
+    "resamples": 20000,
+    "seed": 20261013,
+    "interval": [
+      -0.018000000000000013,
+      -0.01200000000000001
+    ],
+    "limitation": "five cases; interval is an illustrative resampling calculation, not population validation"
+  },
+  "permutation": {
+    "assignments": 32,
+    "two_sided_p": 0.0625,
+    "assumption": "model-label exchangeability within independent cases under the null"
+  },
+  "checks": {
+    "scipy_matches_enumeration": "PASS",
+    "case_rmse_reconstruction": "PASS",
+    "frame_replication_not_new_cases": "PASS"
+  },
+  "source_sha256": "4aef1b9da0b456f5ac061ec903f108e8c0f5f90c953e276c90445e48ac559bb9"
+}

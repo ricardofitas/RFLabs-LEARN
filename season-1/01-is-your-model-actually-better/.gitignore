@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+assets/
+animations/
+*.mp4
+*.webm
+*.png
+*.svg
+*.npz
+case_table.html
+synthetic_case_errors.csv

@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+**/animations/
+*.mp4
+*.webm
+*.mp3
+*.wav
+*.m4a
+*.npz
+*.png
+**/case_table.html

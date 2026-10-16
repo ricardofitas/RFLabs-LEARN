@@ -1,0 +1,4 @@
+A lower error does not automatically mean a better model. Using a simple tensile-test example and reproducible Python code, explore paired comparisons, bootstrap confidence intervals, exact sign-flip tests and the importance of independent test cases. The numerical example uses synthetic teaching data.
+
+Code, notebooks and episode materials:
+https://github.com/ricardofitas/RFLabs-LEARN
