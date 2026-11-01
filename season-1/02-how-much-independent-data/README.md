@@ -27,3 +27,11 @@ Verified environment: Python 3.12, NumPy 2.3.5, scikit-learn 1.8.0.
 
 Video status: revised private review; publication requires the owner's final
 acceptance. The numerical example is available independently of the video.
+
+## JupyterLab walkthrough
+
+The revised video executes this episode's code in real JupyterLab. Open the
+[numbered demonstration notebooks](jupyter/README.md) to follow the same sequence
+of calculations and generated plots. Each notebook can run from a fresh kernel;
+its setup imports the unchanged `independent_units.py` program and fixed seed.
+The saved notebook outputs are the outputs recorded in the video.
