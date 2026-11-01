@@ -37,8 +37,9 @@
       "target_date": "2026-10-23",
       "youtube_url": null,
       "publication_status": "planned",
-      "materials": null,
-      "production_status": "ready_for_approval"
+      "materials": "02-how-much-independent-data",
+      "production_status": "revision_requested",
+      "production_note": "Owner requested a tutorial and visual revision on 1 November 2026; final acceptance pending."
     },
     {
       "episode": 3,
