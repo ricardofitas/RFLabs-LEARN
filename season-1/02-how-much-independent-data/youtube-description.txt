@@ -1,0 +1,14 @@
+How Much Independent Data Do You Have? | LEARN S1E02
+
+Follow a reproducible Python example to distinguish stored rows from independent
+cases. Inspect the code, run the checks and compare the resulting calculations.
+
+Code, executable notebook and materials:
+https://github.com/ricardofitas/RFLabs-LEARN/tree/main/season-1/02-how-much-independent-data
+
+The lesson uses synthetic teaching data. It does not measure real specimens,
+train a predictive model or establish population confidence-interval coverage.
+
+Reference documentation:
+https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html
+https://scikit-learn.org/stable/modules/cross_validation.html

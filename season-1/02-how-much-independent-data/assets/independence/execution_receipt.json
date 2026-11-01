@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-11-01T15:25:29.182743+00:00",
+  "sourceSha256": "b24af0db7c51009ffbbeccd71148b8b9735444a8f7f4d7cc38248ecdc008ba29",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "numpy": "2.3.5",
+    "sklearn": "1.8.0",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39"
+  },
+  "seed": 20261014,
+  "bootstrap_draws": 20000,
+  "evidence_class": "Stipulated synthetic teaching data; no actual measurements",
+  "independence": "Five hypothetical independent cases; dependent frames within each",
+  "results": {
+    "rows": 500,
+    "groups": 5,
+    "mean": 0.12,
+    "row_sem_iid_assumption": 0.041165388111333454,
+    "case_sem": 0.4543126676640218,
+    "duplicated_rows": 5000,
+    "duplicate_row_sem": 0.013005915222165383,
+    "duplicate_case_sem": 0.4543126676640219,
+    "unequal_counts": [
+      20,
+      40,
+      60,
+      100,
+      200
+    ],
+    "equal_case_mean": 0.12000000000000004,
+    "frame_weighted_mean": 0.7619047619047619,
+    "train_groups": [
+      0,
+      1
+    ],
+    "validation_groups": [
+      2
+    ],
+    "test_groups": [
+      3,
+      4
+    ],
+    "random_split_overlapping_groups": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "case_percentile_interval": [
+      -0.64,
+      0.9199999999999997
+    ],
+    "row_percentile_interval": [
+      0.03979915927138878,
+      0.19976858709642556
+    ],
+    "design_effect_rho_08": 80.2,
+    "variance_equivalent_n": 6.234413965087281,
+    "direct_mean_variance": 0.1604
+  },
+  "meaningful_checks": [
+    "Duplication preserves case means and case SEM",
+    "Unequal row weighting equals analytic weighted mean",
+    "Group train/validation/test sets are disjoint and exhaustive",
+    "Random row split shares all five case IDs",
+    "Block covariance identity equals analytic design effect",
+    "Case-level bootstrap has broader spread in this fixed example"
+  ],
+  "limits": [
+    "No model training, CPU/GPU performance or empirical ICC estimation",
+    "Five synthetic groups cannot validate population confidence-interval coverage",
+    "Percentile intervals show resampling mechanics, not a guaranteed inference procedure",
+    "Grouped splitting requires the correct unit for the intended deployment",
+    "Time dependence and higher-level batches may require additional blocking"
+  ]
+}
