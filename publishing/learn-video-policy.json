@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "policy_id": "LEARN-VIDEO-20261101",
+  "schema_version": 2,
+  "policy_id": "LEARN-VIDEO-20261101-R2",
   "scope": {
     "series": "LEARN",
     "ticket_prefix": "VID-LEARN-",
@@ -8,12 +8,12 @@
   },
   "owner_instruction_date": "2026-11-01",
   "reference_ticket": "VID-LEARN-001",
-  "reference_note": "Use the accepted tutorial style: executable code, actual outputs and animated explanations. Do not restore discarded visual revisions.",
+  "reference_note": "Retain executable-code tutorial teaching. Visual models may vary; the owner accepts the present designed playback style for this episode. Do not force a live-IDE imitation.",
   "visuals": {
     "semantic_icons": true,
     "explanatory_animation": true,
     "bullets": "Short supporting text paired with icons, diagrams or data; never a repeated text-only three-bullet template.",
-    "code_tutorial": "Demonstrate open/edit or inspect code → run → inspect actual results/plots → return to relevant code. Keep source readable and highlight the active lines; do not simulate outputs.",
+    "code_tutorial": "Demonstrate open/edit or inspect code \u2192 run \u2192 inspect actual results/plots \u2192 return to relevant code. Keep source readable and highlight the active lines; do not simulate outputs.",
     "branding": "Reuse the approved transparent primary logo asset with a real alpha channel; do not use the opaque dark variant or a rectangular backing.",
     "scene_counters": false,
     "presentation_page_counters": false,
@@ -23,18 +23,38 @@
       "formula": "clamp((time-scene_start)/(scene_end-scene_start),0,1)",
       "reset_on_every_scene": true,
       "visible_in_code_plot_and_closing": true
-    }
+    },
+    "animation": {
+      "default": "Stationary content; animate only when motion explains a change in the data or a narrated process.",
+      "allowed": [
+        "Data-grounded changes in graphs with clear labels and a visible meaning",
+        "Discrete highlight or reveal of a block, frame or step aligned with the narration",
+        "Existing code/run/output/code transitions",
+        "The required current-scene progress bar"
+      ],
+      "prohibited": [
+        "Decorative continuous drifting, sliding labels or alignment movements",
+        "Opening or repeated 0-to-100 trace/count-up animation",
+        "Numbers changing while the plotted result appears unchanged",
+        "Moving time-series selection boxes without an explained resampling step",
+        "Icons or locks popping in independently of the spoken explanation"
+      ],
+      "timing": "Use actual narration cue times for conceptual focus steps; do not loop or move focus just to fill time.",
+      "graph_counters": "Show the final executed count unless successive intermediate states teach a visible, explained change. More bootstrap draws are not more independent cases."
+    },
+    "screen_text": "Keep explanations and scientific assumptions needed to interpret a result. Remove production/meta comments, defensive disclaimers such as this lesson does not fit a predictive model, and repetitive companion/source bookkeeping.",
+    "layout": "Keep all cards, labels, arrows and notes inside the main white panel with consistent padding; inspect every discrete state. Consecutive scenes must add distinct content, not just change the title.",
+    "colour_semantics": "Use colour consistently. Separate hierarchy and time-series examples; do not imply shared group identity through accidental colour reuse."
   },
   "closing": {
-    "target_seconds": 7,
-    "minimum_seconds": 6,
     "maximum_seconds_exclusive": 10,
     "thank_you": "Thank you for your attention.",
-    "minimum_speech_seconds": 2,
-    "cta": "Find the code and materials on GitHub — link in the description.",
-    "article_cta": "Optional alternative/addition only when a verified open-access article exists; link it in the description.",
-    "readable_hold": true,
-    "avoid_rushed_voice": true
+    "speech_rate": "Original natural speed, exactly 1.0; never time-stretch to fill the closing.",
+    "silent_hold_after_speech_seconds": 7,
+    "silent_hold_scope": "Final scene only, after the last spoken phrase.",
+    "cta": "Brief reference to GitHub materials or a verified open-access article in the description.",
+    "cta_voice": "A CTA may be spoken when already part of a future authorized script. Do not generate additional speech for this revision; retain its visual GitHub CTA.",
+    "readable_hold": true
   },
   "evidence": {
     "run_example_before_render": true,
@@ -45,18 +65,25 @@
     "validate_caption_sync": true,
     "validate_alpha_and_progress_resets": true,
     "inspect_code_plot_closing_frames": true,
-    "validate_cta_links": true
+    "validate_cta_links": true,
+    "validate_original_tempo_and_final_silence": true,
+    "validate_no_decorative_motion": true,
+    "validate_all_layout_states": true
   },
   "audio": {
     "preserve_personal_voice": true,
     "existing_approved_cleanup": "apply once; never denoise an already-cleaned track again",
-    "do_not_splice_name_reference": true
+    "do_not_splice_name_reference": true,
+    "preserve_original_tempo": true,
+    "generate_new_voice_for_this_revision": false
   },
   "revision": {
     "ticket": "VID-LEARN-002",
     "superseded_delivery": "83ef951b-f160-4da8-a627-311aad7ccfda",
     "status": "owner_requested_changes",
     "do_not_publish_superseded_delivery": true,
-    "owner_acceptance_after_new_render_required": true
+    "owner_acceptance_after_new_render_required": true,
+    "superseded_library_version": 1,
+    "owner_feedback_round": 2
   }
 }
