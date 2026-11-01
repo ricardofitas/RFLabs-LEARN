@@ -10,7 +10,7 @@ Practical lessons in statistics, machine learning and scientific computing by **
 | Episode | Title | Track | Target Friday | YouTube | Materials |
 |---|---|---|---|---|---|
 | S1E01 | Is Your Model Actually Better? | Statistics | 2026-10-16 | [Watch](https://www.youtube.com/watch?v=Gz5tEYECnsE) | [Code and notebooks](season-1/01-is-your-model-actually-better/) |
-| S1E02 | How Much Independent Data Do You Have? | Statistics | 2026-10-23 | Pending upload | In preparation |
+| S1E02 | How Much Independent Data Do You Have? | Statistics | 2026-10-23 | Pending upload | [Code and notebook](season-1/02-how-much-independent-data/) |
 | S1E03 | Why Your Test Score Is Too Good | Statistics | 2026-10-30 | Pending upload | In preparation |
 | S1E04 | Choose the Right Validation Split | Statistics | 2026-11-06 | Pending upload | In preparation |
 | S1E05 | What Does a Confidence Interval Tell You? | Statistics | 2026-11-13 | Pending upload | In preparation |
@@ -44,3 +44,5 @@ Practical lessons in statistics, machine learning and scientific computing by **
 Dates are editorial targets. The YouTube column will link to each actual upload when its URL is available. Publication of later episodes depends on completion and Ricardo's approval. The channel is connected and verified. Episode 1 is now published with its approved custom thumbnail.
 
 The machine-readable calendar is [season-1/episodes.json](season-1/episodes.json).
+
+LEARN video production follows the [programme-specific visual and tutorial rules](publishing/learn-video-policy.json).
