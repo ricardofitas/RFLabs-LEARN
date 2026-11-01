@@ -1,6 +1,6 @@
 {
-  "schema_version": 2,
-  "policy_id": "LEARN-VIDEO-20261101-R2",
+  "schema_version": 3,
+  "policy_id": "LEARN-VIDEO-20261101-R3",
   "scope": {
     "series": "LEARN",
     "ticket_prefix": "VID-LEARN-",
@@ -8,15 +8,20 @@
   },
   "owner_instruction_date": "2026-11-01",
   "reference_ticket": "VID-LEARN-001",
-  "reference_note": "Retain executable-code tutorial teaching. Visual models may vary; the owner accepts the present designed playback style for this episode. Do not force a live-IDE imitation.",
+  "reference_note": "Follow LEARN-001 real JupyterLab recordings for code interaction. Use the current episode own code, data and results; never copy another episode scientific example.",
   "visuals": {
     "semantic_icons": true,
     "explanatory_animation": true,
     "bullets": "Short supporting text paired with icons, diagrams or data; never a repeated text-only three-bullet template.",
-    "code_tutorial": "Demonstrate open/edit or inspect code \u2192 run \u2192 inspect actual results/plots \u2192 return to relevant code. Keep source readable and highlight the active lines; do not simulate outputs.",
+    "code_tutorial": "Mandatory for LEARN episodes with code: execute the episode actual Python in real JupyterLab and record the visible editor/notebook, run action and actual outputs/plots. Synchronize typing, selection, scrolling and result inspection to narration. A painted editor or designed code playback is not an acceptable substitute.",
     "branding": "Reuse the approved transparent primary logo asset with a real alpha channel; do not use the opaque dark variant or a rectangular backing.",
-    "scene_counters": false,
-    "presentation_page_counters": false,
+    "scene_counters": {
+      "visible": true,
+      "format": "current / total",
+      "word_scene": false,
+      "scope": "Every scene, including JupyterLab and the closing. The owner clarified that only the word Scene is removed; retain the denominator."
+    },
+    "presentation_page_counters": true,
     "global_video_clock": false,
     "progress": {
       "scope": "current_scene",
@@ -30,7 +35,8 @@
         "Data-grounded changes in graphs with clear labels and a visible meaning",
         "Discrete highlight or reveal of a block, frame or step aligned with the narration",
         "Existing code/run/output/code transitions",
-        "The required current-scene progress bar"
+        "The required current-scene progress bar",
+        "Opening statistical graph demonstration grounded in the episode concept; keep motion explanatory and labels minimal."
       ],
       "prohibited": [
         "Decorative continuous drifting, sliding labels or alignment movements",
@@ -44,7 +50,8 @@
     },
     "screen_text": "Keep explanations and scientific assumptions needed to interpret a result. Remove production/meta comments, defensive disclaimers such as this lesson does not fit a predictive model, and repetitive companion/source bookkeeping.",
     "layout": "Keep all cards, labels, arrows and notes inside the main white panel with consistent padding; inspect every discrete state. Consecutive scenes must add distinct content, not just change the title.",
-    "colour_semantics": "Use colour consistently. Separate hierarchy and time-series examples; do not imply shared group identity through accidental colour reuse."
+    "colour_semantics": "Use colour consistently. Separate hierarchy and time-series examples; do not imply shared group identity through accidental colour reuse.",
+    "opening": "Begin with a light, topic-specific statistical demonstration or clear diagram. Establish the question through a familiar sampling situation before introducing case IDs, numerical counts or arrays. Use meaningful changes in a graph if helpful; no decorative slide animation. For LEARN-002 contrast repeat measurements of one physical object with sampling distinct independent objects; introduce five cases and100frames only when the narration explains them."
   },
   "closing": {
     "maximum_seconds_exclusive": 10,
@@ -68,7 +75,9 @@
     "validate_cta_links": true,
     "validate_original_tempo_and_final_silence": true,
     "validate_no_decorative_motion": true,
-    "validate_all_layout_states": true
+    "validate_all_layout_states": true,
+    "validate_real_jupyter_execution_and_capture": true,
+    "retain_jupyter_notebooks_action_timestamps_and_actual_outputs": true
   },
   "audio": {
     "preserve_personal_voice": true,
@@ -83,7 +92,7 @@
     "status": "owner_requested_changes",
     "do_not_publish_superseded_delivery": true,
     "owner_acceptance_after_new_render_required": true,
-    "superseded_library_version": 1,
-    "owner_feedback_round": 2
+    "superseded_library_version": 2,
+    "owner_feedback_round": 3
   }
 }
