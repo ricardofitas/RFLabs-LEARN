@@ -25,8 +25,10 @@ claimed. The covariance example is a separate conditional model.
 
 Verified environment: Python 3.12, NumPy 2.3.5, scikit-learn 1.8.0.
 
-Video status: revised private review; publication requires the owner's final
-acceptance. The numerical example is available independently of the video.
+Video status: approved by the owner on **1 November 2026**. Publication target:
+**1 November 2026**. The YouTube link will be added after upload.
+
+[YouTube description](youtube-description.txt) · [Thumbnail](../../publishing/thumbnails/LEARN002.jpg)
 
 ## JupyterLab walkthrough
 

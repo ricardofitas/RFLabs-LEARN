@@ -89,10 +89,13 @@
   "revision": {
     "ticket": "VID-LEARN-002",
     "superseded_delivery": "83ef951b-f160-4da8-a627-311aad7ccfda",
-    "status": "owner_requested_changes",
+    "status": "owner_approved",
     "do_not_publish_superseded_delivery": true,
-    "owner_acceptance_after_new_render_required": true,
+    "owner_acceptance_after_new_render_required": false,
     "superseded_library_version": 2,
-    "owner_feedback_round": 3
+    "owner_feedback_round": 3,
+    "owner_approved_on": "2026-11-01",
+    "approved_library_version": 3,
+    "approved_video_sha256": "4bad819bcd00ae7dabe985388a89636d55a428eb96610716e55f75600ad78d71"
   }
 }

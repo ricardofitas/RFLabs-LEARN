@@ -9,6 +9,7 @@ The owner requested immediate publication of all three videos on 16 October 2026
 | THALASSA | [Watch](https://www.youtube.com/watch?v=c3Adrd3EUCw) | Published; custom thumbnail pending |
 | Graph-CB | [Watch](https://www.youtube.com/watch?v=ftrbhKALZ7o) | Published; custom thumbnail pending |
 | LEARN S1E01 | [Watch](https://www.youtube.com/watch?v=Gz5tEYECnsE) | Published with approved custom thumbnail |
+| LEARN S1E02 | Pending upload | Video approved; publication target 1 November 2026; thumbnail and description ready |
 
 The channel was verified and LEARN S1E01 was re-uploaded successfully with the approved thumbnail. THALASSA and Graph-CB are published; their custom-thumbnail replacements remain pending. Edit those existing videos to change their thumbnails.
 
@@ -29,3 +30,11 @@ Explore the project: https://projecthub.ricardofitas.com/thalassa/
 See how images become graphs to track the deformation of corrugated board during compression.
 
 Explore the project: https://projecthub.temp.ricardofitas.com/graph-cb
+
+## How Much Independent Data Do You Have?
+
+Owner approved the completed video on **1 November 2026** and set its publication target to **1 November 2026**.
+
+- [YouTube description](../season-1/02-how-much-independent-data/youtube-description.txt)
+- [Thumbnail, 1280 × 720 JPG](thumbnails/LEARN002.jpg)
+- [Code and JupyterLab notebooks](../season-1/02-how-much-independent-data/)

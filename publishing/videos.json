@@ -42,6 +42,20 @@
       "publication_status": "published",
       "thumbnail_status": "upload_failed",
       "provider_message": "The YouTube post was published with some warnings: Could not upload video thumbnail."
+    },
+    {
+      "ticket": "VID-LEARN-002",
+      "title": "How Much Independent Data Do You Have?",
+      "description": "More rows do not always mean more independent evidence.\n\nIn this hands-on LEARN lesson, we work through a reproducible Python example in JupyterLab to see how repeated measurements, group sizes and data splits affect the conclusions we can draw.\n\nYou’ll learn how to:\n• Distinguish stored rows from independent sampling units.\n• Compare uncertainty calculations based on rows and whole cases.\n• Detect group leakage and keep training, validation and test cases separate.\n• Resample whole cases with the bootstrap.\n\nCode, Jupyter notebooks and materials:\nhttps://github.com/ricardofitas/RFLabs-LEARN/tree/main/season-1/02-how-much-independent-data\n\nChapters\n00:00 More measurements, more independent evidence?\n00:41 Choose the independent unit\n01:28 Build and check the Python example\n03:01 Two standard errors, two assumptions\n03:45 Duplicate rows without adding independent cases\n04:32 Covariance and effective sample size\n06:13 Unequal groups and weighting\n06:59 Random row splits and grouped partitions\n08:36 Fit preprocessing on training data\n09:24 Bootstrap the independent unit\n10:09 Hierarchies, time series and the claim you can make\n11:38 A practical audit for your own project\n\nThe examples use synthetic teaching data.\n\nPrevious episode — Is Your Model Actually Better?\nhttps://www.youtube.com/watch?v=Gz5tEYECnsE\n\n#Statistics #Python #DataScience",
+      "target_publication_date": "2026-11-01",
+      "production_status": "approved",
+      "owner_approved_on": "2026-11-01",
+      "approved_video_sha256": "4bad819bcd00ae7dabe985388a89636d55a428eb96610716e55f75600ad78d71",
+      "publication_status": "planned",
+      "youtube_url": null,
+      "thumbnail_status": "ready",
+      "thumbnail_path": "publishing/thumbnails/LEARN002.jpg",
+      "youtube_description_path": "season-1/02-how-much-independent-data/youtube-description.txt"
     }
   ]
 }

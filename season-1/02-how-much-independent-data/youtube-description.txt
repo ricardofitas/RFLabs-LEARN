@@ -1,14 +1,33 @@
-How Much Independent Data Do You Have? | LEARN S1E02
+More rows do not always mean more independent evidence.
 
-Follow a reproducible Python example to distinguish stored rows from independent
-cases. Inspect the code, run the checks and compare the resulting calculations.
+In this hands-on LEARN lesson, we work through a reproducible Python example in JupyterLab to see how repeated measurements, group sizes and data splits affect the conclusions we can draw.
 
-Code, executable notebook and materials:
+You’ll learn how to:
+• Distinguish stored rows from independent sampling units.
+• Compare uncertainty calculations based on rows and whole cases.
+• Detect group leakage and keep training, validation and test cases separate.
+• Resample whole cases with the bootstrap.
+
+Code, Jupyter notebooks and materials:
 https://github.com/ricardofitas/RFLabs-LEARN/tree/main/season-1/02-how-much-independent-data
 
-The lesson uses synthetic teaching data. It does not measure real specimens,
-train a predictive model or establish population confidence-interval coverage.
+Chapters
+00:00 More measurements, more independent evidence?
+00:41 Choose the independent unit
+01:28 Build and check the Python example
+03:01 Two standard errors, two assumptions
+03:45 Duplicate rows without adding independent cases
+04:32 Covariance and effective sample size
+06:13 Unequal groups and weighting
+06:59 Random row splits and grouped partitions
+08:36 Fit preprocessing on training data
+09:24 Bootstrap the independent unit
+10:09 Hierarchies, time series and the claim you can make
+11:38 A practical audit for your own project
 
-Reference documentation:
-https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html
-https://scikit-learn.org/stable/modules/cross_validation.html
+The examples use synthetic teaching data.
+
+Previous episode — Is Your Model Actually Better?
+https://www.youtube.com/watch?v=Gz5tEYECnsE
+
+#Statistics #Python #DataScience

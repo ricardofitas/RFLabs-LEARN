@@ -34,12 +34,17 @@
       "ticket": "VID-LEARN-002",
       "title": "How Much Independent Data Do You Have?",
       "track": "Statistics",
-      "target_date": "2026-10-23",
+      "target_date": "2026-11-01",
       "youtube_url": null,
       "publication_status": "planned",
       "materials": "02-how-much-independent-data",
-      "production_status": "revision_requested",
-      "production_note": "Owner requested a tutorial and visual revision on 1 November 2026; final acceptance pending."
+      "production_status": "approved",
+      "production_note": "Owner approved the completed JupyterLab revision on 1 November 2026; publication target moved to the same date.",
+      "owner_approved_on": "2026-11-01",
+      "approved_video_sha256": "4bad819bcd00ae7dabe985388a89636d55a428eb96610716e55f75600ad78d71",
+      "thumbnail_status": "ready",
+      "thumbnail_path": "publishing/thumbnails/LEARN002.jpg",
+      "youtube_description_path": "season-1/02-how-much-independent-data/youtube-description.txt"
     },
     {
       "episode": 3,
