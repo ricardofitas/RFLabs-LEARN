@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "policy_id": "LEARN-VIDEO-20261101",
+  "scope": {
+    "series": "LEARN",
+    "ticket_prefix": "VID-LEARN-",
+    "apply_to_other_programmes": false
+  },
+  "owner_instruction_date": "2026-11-01",
+  "reference_ticket": "VID-LEARN-001",
+  "reference_note": "Use the accepted tutorial style: executable code, actual outputs and animated explanations. Do not restore discarded visual revisions.",
+  "visuals": {
+    "semantic_icons": true,
+    "explanatory_animation": true,
+    "bullets": "Short supporting text paired with icons, diagrams or data; never a repeated text-only three-bullet template.",
+    "code_tutorial": "Demonstrate open/edit or inspect code → run → inspect actual results/plots → return to relevant code. Keep source readable and highlight the active lines; do not simulate outputs.",
+    "branding": "Reuse the approved transparent primary logo asset with a real alpha channel; do not use the opaque dark variant or a rectangular backing.",
+    "scene_counters": false,
+    "presentation_page_counters": false,
+    "global_video_clock": false,
+    "progress": {
+      "scope": "current_scene",
+      "formula": "clamp((time-scene_start)/(scene_end-scene_start),0,1)",
+      "reset_on_every_scene": true,
+      "visible_in_code_plot_and_closing": true
+    }
+  },
+  "closing": {
+    "target_seconds": 7,
+    "minimum_seconds": 6,
+    "maximum_seconds_exclusive": 10,
+    "thank_you": "Thank you for your attention.",
+    "minimum_speech_seconds": 2,
+    "cta": "Find the code and materials on GitHub — link in the description.",
+    "article_cta": "Optional alternative/addition only when a verified open-access article exists; link it in the description.",
+    "readable_hold": true,
+    "avoid_rushed_voice": true
+  },
+  "evidence": {
+    "run_example_before_render": true,
+    "retain_source_and_outputs": true,
+    "plot_data_must_match_execution": true,
+    "synthetic_data_label": true,
+    "validate_full_video_decode": true,
+    "validate_caption_sync": true,
+    "validate_alpha_and_progress_resets": true,
+    "inspect_code_plot_closing_frames": true,
+    "validate_cta_links": true
+  },
+  "audio": {
+    "preserve_personal_voice": true,
+    "existing_approved_cleanup": "apply once; never denoise an already-cleaned track again",
+    "do_not_splice_name_reference": true
+  },
+  "revision": {
+    "ticket": "VID-LEARN-002",
+    "superseded_delivery": "83ef951b-f160-4da8-a627-311aad7ccfda",
+    "status": "owner_requested_changes",
+    "do_not_publish_superseded_delivery": true,
+    "owner_acceptance_after_new_render_required": true
+  }
+}
