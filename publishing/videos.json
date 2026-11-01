@@ -51,11 +51,16 @@
       "production_status": "approved",
       "owner_approved_on": "2026-11-01",
       "approved_video_sha256": "4bad819bcd00ae7dabe985388a89636d55a428eb96610716e55f75600ad78d71",
-      "publication_status": "planned",
-      "youtube_url": null,
-      "thumbnail_status": "ready",
+      "publication_status": "published",
+      "youtube_url": "https://www.youtube.com/watch?v=q5kzkqh5VCc",
+      "thumbnail_status": "published",
       "thumbnail_path": "publishing/thumbnails/LEARN002.jpg",
-      "youtube_description_path": "season-1/02-how-much-independent-data/youtube-description.txt"
+      "youtube_description_path": "season-1/02-how-much-independent-data/youtube-description.txt",
+      "youtube_video_id": "q5kzkqh5VCc",
+      "provider_message": "Published",
+      "metricool_post_id": 413150098,
+      "metricool_uuid": "3595511160751804024",
+      "publication_date": "2026-11-01"
     }
   ]
 }
